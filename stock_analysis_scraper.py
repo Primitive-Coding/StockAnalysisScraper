@@ -526,7 +526,7 @@ class StockAnalysis:
 if __name__ == "__main__":
 
     s = StockAnalysis("AAPL")
-    # df = s.get_income_statement()
+    #df = s.get_income_statement()
     # df = s.get_balance_sheet()
     # df = s.get_cash_flow()
     # df = s.get_ratios()
