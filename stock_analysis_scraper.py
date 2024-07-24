@@ -73,15 +73,28 @@ class StockAnalysis:
     """-----------------------------------"""
 
     def _get_data_export_path(self):
-        with open("config.json", "r") as file:
-            data = json.load(file)
+        try:
+            internal_path = f"{os.getcwd()}\\config.json"
+            with open(internal_path, "r") as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            external_path = f"{os.getcwd()}\\StockAnalysisScraper\\config.json"
+            with open(external_path, "r") as file:
+                data = json.load(file)
         return data["data_export_path"]
 
     """-----------------------------------"""
+    """----------------------------------- Browser Operations -----------------------------------"""
 
     def _get_chrome_driver_path(self):
-        with open("config.json", "r") as file:
-            data = json.load(file)
+        try:
+            internal_path = f"{os.getcwd()}\\config.json"
+            with open(internal_path, "r") as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            external_path = f"{os.getcwd()}\\StockAnalysisScraper\\config.json"
+            with open(external_path, "r") as file:
+                data = json.load(file)
         return data["chrome_driver_path"]
 
     ################################################################### Browser Creation
@@ -526,7 +539,7 @@ class StockAnalysis:
 if __name__ == "__main__":
 
     s = StockAnalysis("AAPL")
-    #df = s.get_income_statement()
+    # df = s.get_income_statement()
     # df = s.get_balance_sheet()
     # df = s.get_cash_flow()
     # df = s.get_ratios()
